@@ -16,7 +16,7 @@ struct SetGameModel<CardContent> {
     
     init(createCardContent: (Int) -> CardContent) {
         cards = []
-        for num in 0..<81 {
+        for num in 0..<27 {
             cards.append(Card(content: createCardContent(num), id: num))
         }
         cards.shuffle()
@@ -33,7 +33,7 @@ struct SetGameModel<CardContent> {
         
     }
     
-    struct Card {
+    struct Card: Identifiable {
         var isSelected = false // need to change this to something more ephemeral friendly apparently??
         var isMatched = false
         let content: CardContent

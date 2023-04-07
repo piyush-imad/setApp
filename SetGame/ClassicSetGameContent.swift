@@ -35,7 +35,7 @@ struct ClassicSetGameContent {
 
     struct ClassicCardContent {
         var color: CardColor
-        var shape: any Shape
+        var shape: Rectangle
         var shading: Shading
         var number: Number
     }

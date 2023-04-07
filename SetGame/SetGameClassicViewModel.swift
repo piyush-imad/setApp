@@ -40,6 +40,10 @@ class SetGameClassicViewModel: ObservableObject {
     
     // MARK: - Intent(s)
     
+    func cards() -> [SetGameModel<ClassicContent>.Card] {
+        model.cards
+    }
+    
     func choose(_ card: SetGameModel<ClassicContent>.Card) {
         model.choose(card)
     }
