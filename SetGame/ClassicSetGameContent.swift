@@ -40,16 +40,12 @@ struct ClassicSetGameContent {
         var number: Number
     }
     
-    var contentForCards: Array<ClassicCardContent> {
-        var contentArray = Array<ClassicCardContent>()
-        for shade in Shading.allCases {
-            for cColor in CardColor.allCases {
-                for num in Number.allCases {
-                    contentArray.append(ClassicCardContent(color: cColor, shape: Rectangle(), shading: shade, number: num))
-                }
+    let contentForCards = Shading.allCases.flatMap { shade in
+        CardColor.allCases.flatMap { cColor in
+            Number.allCases.map { num in
+                ClassicCardContent(color: cColor, shape: Rectangle(), shading: shade, number: num)
             }
         }
-        return contentArray
     }
 }
 
