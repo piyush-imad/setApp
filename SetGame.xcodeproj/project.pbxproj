@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B3AC96B29E17999009D5F80 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3AC96A29E17999009D5F80 /* AspectVGrid.swift */; };
+		4B3AC96D29E19012009D5F80 /* AnyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3AC96C29E19012009D5F80 /* AnyShape.swift */; };
 		4B9C4A0129E01760005E4ED1 /* SetGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9C4A0029E01760005E4ED1 /* SetGameApp.swift */; };
 		4B9C4A0329E01760005E4ED1 /* SetGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9C4A0229E01760005E4ED1 /* SetGameView.swift */; };
 		4B9C4A0529E01761005E4ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B9C4A0429E01761005E4ED1 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B3AC96A29E17999009D5F80 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
+		4B3AC96C29E19012009D5F80 /* AnyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShape.swift; sourceTree = "<group>"; };
 		4B9C49FD29E01760005E4ED1 /* SetGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9C4A0029E01760005E4ED1 /* SetGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameApp.swift; sourceTree = "<group>"; };
 		4B9C4A0229E01760005E4ED1 /* SetGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameView.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 			children = (
 				4B9C4A0029E01760005E4ED1 /* SetGameApp.swift */,
 				4B9C4A0229E01760005E4ED1 /* SetGameView.swift */,
+				4B3AC96C29E19012009D5F80 /* AnyShape.swift */,
+				4B3AC96A29E17999009D5F80 /* AspectVGrid.swift */,
 				4B9C4A1029E02ABC005E4ED1 /* SetGameClassicViewModel.swift */,
 				4B9C4A0E29E017EE005E4ED1 /* SetGameModel.swift */,
 				4B9C4A1229E02B9E005E4ED1 /* ClassicSetGameContent.swift */,
@@ -148,6 +154,8 @@
 			files = (
 				4B9C4A1329E02B9E005E4ED1 /* ClassicSetGameContent.swift in Sources */,
 				4B9C4A1129E02ABC005E4ED1 /* SetGameClassicViewModel.swift in Sources */,
+				4B3AC96B29E17999009D5F80 /* AspectVGrid.swift in Sources */,
+				4B3AC96D29E19012009D5F80 /* AnyShape.swift in Sources */,
 				4B9C4A0329E01760005E4ED1 /* SetGameView.swift in Sources */,
 				4B9C4A0129E01760005E4ED1 /* SetGameApp.swift in Sources */,
 				4B9C4A0F29E017EE005E4ED1 /* SetGameModel.swift in Sources */,

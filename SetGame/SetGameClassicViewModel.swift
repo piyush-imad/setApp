@@ -10,9 +10,12 @@ import SwiftUI
 class SetGameClassicViewModel: ObservableObject {
     typealias ClassicContent = ClassicSetGameContent.ClassicCardContent
     
+    static let content = ClassicSetGameContent()
+    
     static func createSetGame() -> SetGameModel<ClassicContent> {
-        SetGameModel<ClassicContent>(){ pairIndex in
-            let content = ClassicSetGameContent()
+        print(content)
+        print(content.contentForCards.count)
+        return SetGameModel<ClassicContent>(){ pairIndex in
             return content.contentForCards[pairIndex]
         }
     }
@@ -34,14 +37,29 @@ class SetGameClassicViewModel: ObservableObject {
         case .blue:
             themeColor = Color.blue
         }
-        
         return themeColor
+    }
+    
+    func getContentShape(card: SetGameModel<ClassicContent>.Card) -> AnyShape {
+        
+        var finalShape: AnyShape
+        
+        switch card.content.shape {
+        case .rectangle:
+            finalShape = AnyShape(Rectangle())
+        case .pill:
+            finalShape = AnyShape(Capsule())
+        case .diamond:
+            finalShape = AnyShape(Circle())
+        }
+        
+        return finalShape
     }
     
     // MARK: - Intent(s)
     
     func cards() -> [SetGameModel<ClassicContent>.Card] {
-        model.cards
+        model.dealtCards
     }
     
     func choose(_ card: SetGameModel<ClassicContent>.Card) {

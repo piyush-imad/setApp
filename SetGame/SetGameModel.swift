@@ -16,11 +16,13 @@ struct SetGameModel<CardContent> {
     
     init(createCardContent: (Int) -> CardContent) {
         cards = []
-        for num in 0..<27 {
+        
+        for num in 0..<81 {
             cards.append(Card(content: createCardContent(num), id: num))
         }
+        
         cards.shuffle()
-        for index in 0..<12 {
+        for index in 0..<81 {
             cards[index].isDealt = true
         }
     }

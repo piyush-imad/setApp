@@ -27,7 +27,7 @@ struct ClassicSetGameContent {
         case three = 3
     }
     
-    enum CardShape: String {
+    enum CardShape: String, CaseIterable {
         case rectangle = "rectangle"
         case pill = "pill"
         case diamond = "diamond"
@@ -35,15 +35,17 @@ struct ClassicSetGameContent {
 
     struct ClassicCardContent {
         var color: CardColor
-        var shape: Rectangle
+        var shape: CardShape
         var shading: Shading
         var number: Number
     }
     
     let contentForCards = Shading.allCases.flatMap { shade in
         CardColor.allCases.flatMap { cColor in
-            Number.allCases.map { num in
-                ClassicCardContent(color: cColor, shape: Rectangle(), shading: shade, number: num)
+            CardShape.allCases.flatMap { shape in
+                Number.allCases.map { num in
+                    ClassicCardContent(color: cColor, shape: shape, shading: shade, number: num)
+                }
             }
         }
     }
