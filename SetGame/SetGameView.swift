@@ -31,12 +31,28 @@ struct SetGameView: View {
                 }
             }
             
-            Button(action: {
-                viewModel.newGame()
-            }, label: {
-                Text("New Game")
-                    .font(.headline)
-            })
+            HStack {
+                Spacer()
+                
+                
+                Button(action: {
+                    viewModel.deal3MoreCards()
+                }, label: {
+                    Text("Deal 3 More Cards")
+                        .font(.headline)
+                })
+                
+                Spacer()
+                
+                Button(action: {
+                    viewModel.newGame()
+                }, label: {
+                    Text("New Game")
+                        .font(.headline)
+                })
+                
+                Spacer()
+            }
         }
         .padding()
     }

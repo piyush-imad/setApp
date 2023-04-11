@@ -25,3 +25,51 @@ public struct AnyShape: Shape {
         return Path { [make] in make(rect, &$0) }
     }
 }
+
+protocol MyProtocol {
+    
+    func func1()
+    func func2() -> Bool
+}
+
+struct Impl1: MyProtocol {
+    func func1() {
+        print(func2())
+    }
+    
+    func func2() -> Bool {
+        return true
+    }
+}
+
+struct Impl2: MyProtocol {
+    func func1() {
+        print(func2())
+    }
+    
+    func func2() -> Bool {
+        return true
+    }
+}
+
+struct Impl3: MyProtocol {
+    func func1() {
+        print(func2())
+    }
+    
+    func func2() -> Bool {
+        return true
+    }
+}
+
+struct InstanceManager {
+    
+    func makeMyProtocol(input: Int) -> MyProtocol {
+        switch input {
+        case 1: return Impl1()
+        case 2: return Impl2()
+        default: return Impl3()
+            
+        }
+    }
+}

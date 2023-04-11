@@ -56,10 +56,20 @@ class SetGameClassicViewModel: ObservableObject {
         return finalShape
     }
     
+    func getContentShapeTest(type: Int = 1) -> any Shape {
+        var testShape: any Shape = RoundedRectangle(cornerRadius: 10)
+        testShape = Circle()
+        return testShape
+    }
+    
     // MARK: - Intent(s)
     
     func cards() -> [SetGameModel<ClassicContent>.Card] {
         model.dealtCards
+    }
+    
+    func deal3MoreCards() {
+        model.deal3MoreCards()
     }
     
     func choose(_ card: SetGameModel<ClassicContent>.Card) {

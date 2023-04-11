@@ -9,9 +9,10 @@ import Foundation
 
 struct SetGameModel<CardContent> {
     var cards: Array<Card>
-    
+    var dealtCardsIndex: Int = 0
     var dealtCards: Array<Card> {
-        cards.filter({ $0.isDealt })
+    get { Array(cards[0...dealtCardsIndex]) }
+        
     }
     
     init(createCardContent: (Int) -> CardContent) {
@@ -22,17 +23,21 @@ struct SetGameModel<CardContent> {
         }
         
         cards.shuffle()
-        for index in 0..<81 {
-            cards[index].isDealt = true
-        }
+        
+        dealtCardsIndex = 0
+        
     }
     
     func choose(_ card: Card) {
         
     }
     
-    func deal3MoreCards() {
-        
+    mutating func deal3MoreCards() {
+        if dealtCardsIndex + 3 > 80{
+            dealtCardsIndex = 80
+        } else {
+            dealtCardsIndex += 3
+        }
     }
     
     struct Card: Identifiable {
