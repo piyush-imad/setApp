@@ -12,8 +12,9 @@ struct SetGameModel<CardContent> {
     var dealtCardsIndex: Int = 0
     var dealtCards: Array<Card> {
     get { Array(cards[0...dealtCardsIndex]) }
-        
     }
+    
+    var selectedCards = Array<Card>()
     
     init(createCardContent: (Int) -> CardContent) {
         cards = []
@@ -28,7 +29,21 @@ struct SetGameModel<CardContent> {
         
     }
     
-    func choose(_ card: Card) {
+    mutating func choose(_ card: Card) {
+        // find card in cards array
+        // change isSelected
+        
+        if(selectedCards.count == 3) {
+            selectedCards.forEach { card in
+                let selectedCardIndex = cards.firstIndex(where: {$0.id == card.id})
+                cards[selectedCardIndex!].isSelected = false
+            }
+            selectedCards.removeAll()
+        }
+        x
+        let newSelectedCardIndex = cards.firstIndex(where: {$0.id == card.id})
+        selectedCards.append(cards[newSelectedCardIndex!])
+        cards[newSelectedCardIndex!].isSelected = true
         
     }
     

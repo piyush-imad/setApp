@@ -15,6 +15,9 @@ struct SetGameView: View {
                 AspectVGrid(items: viewModel.cards(), aspectRatio: 2/3) { card in
                     CardView(card: card, color: viewModel.getContentColor(card: card), shape: viewModel.getContentShape(card: card))
                         .padding(2)
+                        .onTapGesture {
+                            viewModel.choose(card)
+                        }
                 }
                 .padding()
             } else {
@@ -66,7 +69,12 @@ struct CardView: View {
         ZStack {
             let rectShape = RoundedRectangle(cornerRadius: 20)
             rectShape.fill().foregroundColor(.white)
-            rectShape.strokeBorder(lineWidth: 5).foregroundColor(.gray)
+            if card.isSelected {
+                rectShape.strokeBorder(lineWidth: 5).foregroundColor(.orange)
+            } else {
+                rectShape.strokeBorder(lineWidth: 5).foregroundColor(.gray)
+            }
+            
             VStack {
                 ForEach(0..<card.content.number.rawValue, id: \.self) { _ in
                     ZStack {let internalShape = shape
