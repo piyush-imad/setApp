@@ -10,6 +10,7 @@ import Foundation
 struct SetGameModel<CardContent> {
     var cards: Array<Card>
     var dealtCardsIndex: Int = 0
+    var isMatchedTrioAvailable = false
     var dealtCards: Array<Card> {
     get { Array(cards[0...dealtCardsIndex]) }
     }
@@ -25,22 +26,36 @@ struct SetGameModel<CardContent> {
         
         cards.shuffle()
         
-        dealtCardsIndex = 0
+        dealtCardsIndex = 11
         
+    }
+    
+    mutating func updateMatchedCards(_ matchedCards: Array<Card>) {
+        selectedCards.forEach { card in
+            let matchedCardIndex = cards.firstIndex(where: {$0.id == card.id})
+            cards[matchedCardIndex!].isMatched = true
+        }
+        isMatchedTrioAvailable = true
     }
     
     mutating func choose(_ card: Card) {
         // find card in cards array
         // change isSelected
         
-        if(selectedCards.count == 3) {
+        if isMatchedTrioAvailable {
+            cards.removeAll(where: {$0.isMatched})
+            isMatchedTrioAvailable = false
+            dealtCardsIndex -= 3
+            deal3MoreCards()
+            selectedCards.removeAll()
+        } else if(selectedCards.count == 3) {
             selectedCards.forEach { card in
                 let selectedCardIndex = cards.firstIndex(where: {$0.id == card.id})
                 cards[selectedCardIndex!].isSelected = false
             }
             selectedCards.removeAll()
         }
-        x
+        
         let newSelectedCardIndex = cards.firstIndex(where: {$0.id == card.id})
         selectedCards.append(cards[newSelectedCardIndex!])
         cards[newSelectedCardIndex!].isSelected = true

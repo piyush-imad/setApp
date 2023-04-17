@@ -69,7 +69,9 @@ struct CardView: View {
         ZStack {
             let rectShape = RoundedRectangle(cornerRadius: 20)
             rectShape.fill().foregroundColor(.white)
-            if card.isSelected {
+            if card.isMatched {
+                rectShape.strokeBorder(lineWidth: 5).foregroundColor(.green)
+            } else if card.isSelected {
                 rectShape.strokeBorder(lineWidth: 5).foregroundColor(.orange)
             } else {
                 rectShape.strokeBorder(lineWidth: 5).foregroundColor(.gray)
